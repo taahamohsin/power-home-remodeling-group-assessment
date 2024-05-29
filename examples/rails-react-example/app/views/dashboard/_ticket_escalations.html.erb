@@ -1,0 +1,73 @@
+<%
+  [
+    { name: "New", color: "blue", count: 25, tickets: [
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Missing part", user: "John Doe" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Shipping delayed", user: "Jane Smith" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Wrong size", user: "Alice Johnson" },
+        { avatar_url: nil, issue: "Incorrect billing", user: "Bob Brown" },   # Example with no avatar
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" }
+      ], show_more: true },
+    { name: "Processing", color: "yellow", count: 15, tickets: [
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Return request", user: "Mike Miller" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Exchange needed", user: "Sarah Wilson" },
+        { avatar_url: nil, issue: "Payment issue", user: "David Lee" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Shipping address incorrect", user: "Olivia Martinez" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Cancel order", user: "Daniel Taylor" }
+      ], show_more: false },
+    { name: "Manager Feedback",  count: 5, tickets: [
+        { avatar_url: image_path("avatars/Anita Cruz.png"),issue: "Customer complaint", user: "Emily Anderson" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Refund request", user: "Chris Jackson" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product defect", user: "Sophia Clark" },
+        { avatar_url: nil, issue: "Delivery issue", user: "Benjamin Harris" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"),issue: "Pricing error", user: "Mia Lewis" }
+      ], show_more: false },
+    { name: "Awaiting Feedback", count: 2, tickets: [
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Feedback on new product", user: "Ava White" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Survey response", user: "William Hall" },
+      ], show_more: true },
+    { name: "Approved", count: 8, tickets: [
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "New feature request", user: "James Young" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Bug report", user: "Chloe Green" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Improvement suggestion", user: "Jackson King" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Partnership inquiry", user: "Harper Turner" },
+        { avatar_url: nil, issue: "Job application", user: "Logan Hill" }
+      ], show_more: false }
+  ].each do |stage| %>
+    <%= pb_rails("layout/body", props: { classname: 'pb_ticket_escalation_column' }) do %>
+      <%= pb_rails("card", props: { padding: "sm", margin_bottom: "none", highlight: { position: "side", color: ticket_highlight_color_class(stage[:name])}, classname: 'category-title-card' }) do %>
+        <%= pb_rails("flex", props: { justify: "between" }) do %>
+          <%= pb_rails("flex/flex_item") do %>
+           <%= pb_rails("caption", props: {text: stage[:name] }) %>
+          <% end %>
+          <%= pb_rails("flex/flex_item") do %>
+            <%= pb_rails("badge", props: {
+              text: stage[:count],
+              variant: ticket_category_badge_variant(stage[:name])
+              })
+            %>
+          <% end %>
+        <% end %>
+      <% end %>
+      <% stage[:tickets].each do |ticket| %>
+        <%= pb_rails("card", props: { padding: "sm", margin_bottom: "none" }) do %>
+          <%= pb_rails("flex", props: { justify: "between" }) do %>
+            <%= pb_rails("flex/flex_item") do %>
+              <%= pb_rails("avatar", props: {
+                  name: ticket[:user],
+                  size: "xs",
+                  image_url: ticket[:avatar_url],
+                  status: "away"
+              }) %>
+            <% end %>
+            <%= pb_rails("flex/flex_item") do %>
+              <%= pb_rails("body", props: { text: ticket[:issue], truncate: 1 }) %>
+            <% end %>
+            <%= pb_rails("flex/flex_item") do %>
+              <%= pb_rails("button", props: { variant: "link",  icon: "fa-chevron-right", icon_right: true }) %>
+            <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+

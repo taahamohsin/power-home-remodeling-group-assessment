@@ -1,0 +1,17 @@
+<%= pb_rails("line_graph", props: {
+  chart_data: [
+    {
+      name: "Pipeline",
+      data: [40000, 60000, 65000, 70000, 75000, 80000, 90000, 120000, 140000, 150000, 160000, 170000, 180000, 190000, 200000, 210000]
+    }
+  ],
+  id: "pipeline-chart",
+  gradient: false,
+  legend: false,
+  width: "100%",
+  y_axis_label: "Value",
+  show_y_axis_label: false,
+  show_x_axis_label: false,
+  x_axis_categories: ["5/1", "5/15", "6/1", "6/15", "7/1", "7/15", "8/1", "8/15", "9/1", "9/15", "10/1", "10/15", "11/1", "11/15", "12/1", "12/15"],
+  show_points: true
+}) %>

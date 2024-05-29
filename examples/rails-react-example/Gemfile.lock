@@ -282,6 +282,7 @@ DEPENDENCIES
   rails (~> 7.0.8)
   react-rails
   sass-rails
+  sassc-rails
   selenium-webdriver
   sprockets-rails
   sqlite3

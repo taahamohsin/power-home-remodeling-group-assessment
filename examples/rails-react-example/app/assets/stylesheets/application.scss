@@ -27,6 +27,133 @@ $bolder:        700;
 $boldest:       700;
 $extrabold:     700;
 
-
 @import "reset";
 @import "playbook";
+
+#app-container {
+  padding-top: $space_sm;
+}
+
+.dashboard-title-card {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* app/assets/stylesheets/application.scss (or similar) */
+.pb__wrapper.positive-change {
+  color: #069668;
+}
+
+.pb_icon_wrapper.negative-change {
+  color: #E01E5A;
+}
+
+/* Style for the KPI stat container */
+.pb_kpi_stat {
+  padding: 1rem;
+  /* Adjust as needed */
+  border-bottom: 1px solid #eee;
+  /* Add a subtle divider */
+}
+
+/* Style for stat value to take up all available space */
+.pb_stat_value {
+  flex: 1;
+}
+
+.kpi-wrapper {
+  margin-left: 0.5rem;
+}
+
+.kpi-wrapper .pb_stat_value,
+.pb_icon_wrapper,
+.pb_stat_change {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+.pb_ticket_escalation_column {
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  height: auto !important;
+}
+
+.category-title-card {
+  position: sticky;
+  /* Make it sticky */
+  top: 0;
+  /* Stick it to the top of its container */
+  z-index: 1;
+  /* Ensure it's above the other card content */
+}
+
+
+.pb_ticket_escalation_item {
+  padding: 0.5rem;
+  /* Add padding to each ticket item */
+  border-bottom: 1px solid #eee;
+  /* Add divider between ticket items */
+  text-decoration: none;
+  /* Remove default link underline */
+}
+
+
+/* Custom colors for ticket escalation stages */
+.pb_badge_status {
+  padding: 0.25rem 0.5rem;
+  /* Add some padding for better visibility */
+  border-radius: 0.25rem;
+  /* Round the corners slightly */
+}
+
+.pb_badge_status.blue {
+  background-color: #BFDBFE;
+  color: #1D4ED8;
+}
+
+.pb_badge_status.yellow {
+  background-color: #FEF9C3;
+  color: #F59E0B;
+}
+
+.pb_badge_status.red {
+  background-color: #FEE2E2;
+  color: #B91C1C;
+}
+
+.pb_badge_status.purple {
+  background-color: #F3E8FF;
+  color: #7C3AED;
+}
+
+.pb_badge_status.green {
+  background-color: #ECFDF5;
+  color: #16A34A;
+}
+
+.responsive-kanban-layout {
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+
+.gridone {
+  display: grid;
+  gap: 1px;
+  background-color: #e4e8f0;
+  grid-template: auto auto / auto auto;
+  height: 100%;
+}
+
+ .collection-flex-item {
+    display: flex;
+    flex-direction: column;
+ }
+
+.collection-flex-item > * {
+  height: 100%
+}

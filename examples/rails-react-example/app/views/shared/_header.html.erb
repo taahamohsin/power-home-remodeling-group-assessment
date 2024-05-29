@@ -1,0 +1,37 @@
+<header class="pb_bg_white pb_p_md">
+  <div class="pb_grid">
+    <%= pb_rails("flex", props: { justify: "between" }) do %>
+      <div class="pb_col-auto">
+        <%= image_tag("logo.png", alt: "Company Logo") %>
+      </div>
+
+      <span>
+        <span class="pb_icon_wrapper">
+          <i class="fas fa-bell"></i>
+        </span>
+
+        <span class="pb_icon_wrapper">
+          <i class="fas fa-flag"></i>
+        </span>
+      </span>
+      <div class="pb_col-auto">
+        <%= pb_rails("avatar", props: {
+            name: "Indhira Shree",
+            size: "sm",
+            image_alt: "Indhira Shree",
+            image_url: image_path("avatars/Anita Cruz.png")
+          }) %>
+      </div>
+    <% end %>
+
+    <div class="pb_col-auto pb_flex pb_items_center">
+      <%= pb_rails("nav", props: {  margin_top: "sm", orientation: "horizontal" }) do %>
+        <%= pb_rails("nav/item", props: { text: "Dashboard", link: "#", active: true }) %>
+        <%= pb_rails("nav/item", props: { text: "Products", link: "#" }) %>
+        <%= pb_rails("nav/item", props: { text: "In Progress", link: "#" }) %>
+        <%= pb_rails("nav/item", props: { text: "Settings", link: "#" }) %>
+        <%= pb_rails("nav/item", props: { text: "Sign Out", link: "#" }) %>
+      <% end %>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,62 @@
+<div class="pb_grid">
+  <%= pb_rails("body", props: { text: "DASHBOARD", color: "lighter" }) %>
+  <%= pb_rails("title", props: { text: "Commerce Dashboard", tag: "h2", size: 2, bold: false }) %>
+</div>
+<br/>
+
+<%= pb_rails("layout", props: { position: "left", size: "xl", collapse: "md" }) do %>
+
+  <%= pb_rails("card", props: { classname: 'dashboard-title-card' }) do %>
+    <%= pb_rails("body", props: { text: "Key Performance Indicators", color: "default" }) %>
+      <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: "fa-chevron-right"}) %>
+  <% end %>
+  <hr style="height:1px;border:none;color:#e4e8f0;background-color:#e4e8f0;margin: 15px;" />
+
+  <%= pb_rails("layout/sidebar") do %>
+    <%= pb_rails("nav") do %>
+      <% [
+          { name: "Revenue", value: "$12,345.67", change: "+26%" },
+          { name: "Orders", value: "8,910", change: "-2%" },
+          { name: "Profit", value: "$5,432.10", change: "" },
+          { name: "Average Check", value: "$14.99", change: "+5%" },
+          { name: "Canceled", value: "18%", change: "-8%" },
+          { name: "Repeat Sales", value: "22%", change: "" },
+        ].each do |kpi| %>
+        <%= pb_rails("nav/item", props: { text: kpi[:name], link: '#' }) do |item| %>
+          <span class="kpi-wrapper pb_flex pb_items_center pb_justify_end">
+            <% if kpi[:change].present? %>
+              <span class="pb_icon_wrapper pb_ml_xs" style="color: <%= kpi[:change].to_f > 0 ? '#069668' : '#E01E5A' %>;">
+                <i class="fas <%= kpi[:change].to_f > 0 ? 'fa-arrow-up' : 'fa-arrow-down' %>"></i>
+              </span>
+              <span class="pb_stat_change"><%= kpi[:change] %></span>
+            <% end %>
+          </span>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= pb_rails("layout/body") do %>
+    <%= render "dashboard/sample_line_chart" %>
+  <% end %>
+<% end %>
+<br/>
+<%= pb_rails("layout", props: { layout: "kanban", classname: 'responsive-kanban-layout' }) do %>
+  <%= render "dashboard/ticket_escalations" %>
+<% end %>
+<br/>
+
+<%= pb_rails("layout", props: { layout: "collection" })  do %>
+  <%= pb_rails("flex", props: { wrap: true, justify: "between",  align_items: "stretch" }) do %>
+    <%= pb_rails("flex/flex_item", props: { flex: 1 }) do %>
+      <%= render "dashboard/sample_pipeline_chart" %>
+    <% end %>
+
+    <%= pb_rails("flex/flex_item", props: { flex: 1 }) do %>
+      <%= render "dashboard/sample_grid_chat" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+

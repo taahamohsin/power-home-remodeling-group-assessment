@@ -1,3 +1,8 @@
 <%= react_component("App") %>
 
-<%= pb_rails("button", props: { text: "Button Primary", margin_right: "lg" }) %>
+  <%= pb_rails("body") do %>
+    <%= render "shared/header" %>
+    <div id="app-container"> <%# Main content container for tabs %>
+        <%= render partial: 'dashboard/index' %> <%# Render dashboard if it's the current page %>
+    </div>
+  <% end %>

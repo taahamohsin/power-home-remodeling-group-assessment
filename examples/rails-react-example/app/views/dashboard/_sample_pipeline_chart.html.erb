@@ -1,0 +1,32 @@
+   <%= pb_rails("card", props: { padding: "none", border_none: true, shadow: "deeper",margin: "sm" }) do %>
+      <%= pb_rails("flex", props: { vertical: "center"}) do %>
+        <%= pb_rails("title", props: { text: "Pipeline Chart", tag: "h4", size: 4, padding: "sm" }) %>
+      <% end %>
+      <%= pb_rails("section_separator") %>
+        <% [
+  { label: "Add to Cart", percent: 100, number: 2577 },
+  { label: "Shopping Cart",  percent:  79, number: 2023 },
+  { label: "Payment Methods",  percent:  59, number: 1567 },
+  { label: "Delivery Methods",  percent:  56, number: 1252 },
+  { label: "Confirm", percent: 49, number: 1182 },
+  { label: "Delivery", percent: 46,  number:  1098 }
+].each do |info| %>
+    <%= pb_rails("section_separator") %>
+  <%= pb_rails("flex", props: {vertical: "center",spacing: "between", padding: "sm"}) do %>
+    <%= pb_rails("flex/flex_item", props: { fixed_size: '20%' }) do %>
+      <%= pb_rails("caption", props: { text: info[:label], size: 'xs' }) %>
+    <% end %>
+    <%= pb_rails("flex/flex_item", props: { grow: true } ) do %>
+      <%= pb_rails("flex", props: {vertical: "center", spacing: "around"}) do %>
+        <%= pb_rails("progress_simple", props: {  width: "100px",percent: info[:percent] }) %>
+        <%= pb_rails("flex/flex_item", props: { fixed_size: '20%' }) do %>
+          <%= pb_rails("caption", props: { margin_left: "xs", text: "#{info[:percent]}%", size: 'xs' }) %>
+        <% end %>
+      <% end %>
+      <% end %>
+      <%= pb_rails("flex/flex_item") do %>
+        <%= pb_rails("body", props: {text: "#{info[:number]}"}) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
