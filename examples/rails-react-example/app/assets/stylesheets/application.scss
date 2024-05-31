@@ -35,6 +35,20 @@ $extrabold:     700;
   padding-right: 10%;
 }
 
+.header {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@media (max-width: 540px) {
+  .top-header, .bottom-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100%;
+    /** Vertical on smaller screens */
+  }
+}
+
 .dashboard-title-card {
   width: 100%;
   display: flex;
@@ -86,6 +100,8 @@ $extrabold:     700;
   margin-bottom: 10px;
   height: auto !important;
   justify-content: center;
+  flex-basis: 20% !important;
+  min-width: 190px;
 }
 
 .chevron-right-button {
@@ -110,6 +126,10 @@ $extrabold:     700;
   padding: 0.5rem;
   border-bottom: 1px solid #eee;
   text-decoration: none;
+}
+
+.ticket-title-container {
+  max-width: 90px;
 }
 
 
@@ -157,6 +177,10 @@ $extrabold:     700;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   height: 100%;
   width: 100%;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .kpi {

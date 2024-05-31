@@ -65,8 +65,8 @@
                   image_url: ticket[:avatar_url]
                 }) %>
             <% end %>
-          <%= pb_rails("flex/flex_item", props: { flex: 1, padding_left: "xs"}) do %>
-            <%= pb_rails("body", props: { text: ticket[:issue], truncate: "1", size: 4, weight: 'light' }) %>
+          <%= pb_rails("flex/flex_item", props: { flex: 1, padding_left: "xs", classname: 'ticket-title-container'}) do %>
+            <%= pb_rails("body", props: { text: ticket[:issue], truncate: "1", size: 4, weight: 'light', max_width: '90px' }) %>
           <% end %>
             <%= pb_rails("flex/flex_item") do %>
               <%= pb_rails("button", props: { variant: "link",  icon: image_url("icons/chevron-right"), icon_right: true, padding_left: "none", padding_right: "xs", classname: 'chevron-right-button', size: "sm" }) %>

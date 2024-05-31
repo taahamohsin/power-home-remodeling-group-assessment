@@ -1,6 +1,6 @@
-  <%= pb_rails("background", props: { background_color: "white", padding_bottom: "none", padding_top: "xs" }) do %>
+  <%= pb_rails("background", props: { background_color: "white", padding_bottom: "none", padding_top: "xs", classname: 'header' }) do %>
 
-    <%= pb_rails("flex", props: { justify: "between", padding_left:"lg", padding_right:"lg", wrap: true, vertical: "center" }) do %>
+    <%= pb_rails("flex", props: { justify: "between", padding_left:"lg", padding_right:"lg", wrap: true, vertical: "center", classname: 'top-header' }) do %>
       <%= image_tag("logo.png", alt: "Company Logo") %>
 
       <%= pb_rails("flex", props: { justify: "between", vertical: "center", row_gap: "sm", classname: "header-notification-container" }) do %>
@@ -36,15 +36,14 @@
 
 
     <% end %>
-  <% end %>
-      <%= pb_rails("section_separator") %>
-
-    <div class="pb_col-auto pb_flex pb_items_center">
-      <%= pb_rails("nav", props: {  margin_top: "sm", orientation: "horizontal" }) do %>
+    <%= pb_rails("section_separator") %>
+    <%= pb_rails("nav", props: {  margin_top: "sm", orientation: "horizontal"}) do %>
+      <%= pb_rails("flex", props: {  classname: 'bottom-header' }) do %>
         <%= pb_rails("nav/item", props: { text: "Dashboard", link: "#", active: true }) %>
         <%= pb_rails("nav/item", props: { text: "Products", link: "#" }) %>
         <%= pb_rails("nav/item", props: { text: "In Progress", link: "#" }) %>
         <%= pb_rails("nav/item", props: { text: "Settings", link: "#" }) %>
         <%= pb_rails("nav/item", props: { text: "Sign Out", link: "#" }) %>
       <% end %>
-    </div>
+    <% end %>
+  <% end %>

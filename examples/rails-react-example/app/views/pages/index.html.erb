@@ -1,8 +1,7 @@
 <%= react_component("App") %>
 
-  <%= pb_rails("body", props: { padding: '20px'}) do %>
-    <%= render "shared/header" %>
-    <div id="app-container"> <%# Main content container for tabs %>
-        <%= render partial: 'dashboard/index' %> <%# Render dashboard if it's the current page %>
-    </div>
-  <% end %>
+<%= render "shared/header" %>
+
+<div id="app-container"> <%# Main content container for tabs %>
+    <%= render partial: 'dashboard/index' %> <%# Render dashboard if it's the current page %>
+</div>
