@@ -1,14 +1,9 @@
 <%= pb_rails("card", props: { border_none: true, shadow: "deeper", padding:"none", margin: "sm", class: 'chart-container' }) do %>
   <div class="gridone">
-    <%  [
-{ icon:  "ticket", variant: "green", size: "lg", text: "Tickets (YTD)", value: 1426.0 },
-{ icon:  "times-square", variant: "red", size: "lg", text: "Overdue", value: 25.0 },
-{ icon:  "tasks", variant: "teal", size: "lg", text: "Closed Without Action (YTD)", value: 97.0 },
-{ icon:  "exclamation-triangle", variant: "yellow", size: "lg", text: "Escalated (YTD)", value: 896.0 },
-].each do |ticket|%>
+    <% @grid_data.map(&:symbolize_keys).each do |ticket|%>
       <%= pb_rails("background", props: { background_color: "white", padding: "md" }) do %>
         <%= pb_rails("flex", props: {horizontal: "left", vertical: "center", horizontal: "center" }) do %>
-          <%= pb_rails("flex/flex_item", props:{ fixed_size: "215px" }) do %>
+          <%= pb_rails("flex/flex_item", props:{ fixed_size: "215px", classname: 'grid-chart-item' }) do %>
             <%= pb_rails("icon_stat_value", props: ticket.merge(icon: image_url("icons/#{ticket[:icon]}"))) %>
           <% end %>
         <% end %>

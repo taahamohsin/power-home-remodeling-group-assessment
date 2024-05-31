@@ -1,10 +1,10 @@
 <%= pb_rails("body", props: { text: "DASHBOARD", color: "lighter", margin_top: 'xl' }) %>
 <%= pb_rails("title", props: { text: "Commerce Dashboard", tag: "h2", size: 3, bold: false }) %>
 <br/>
-    <%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
-      <%= pb_rails("title", props: { text: "Key Performance Indicators", tag: "h4", size: 4, padding: "xs" }) %>
-      <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: image_url("icons/ellipsis.svg") }) %>
-    <% end %>
+<%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
+  <%= pb_rails("title", props: { text: "Key Performance Indicators", tag: "h4", size: 4, padding: "xs" }) %>
+  <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: image_url("icons/ellipsis.svg") }) %>
+<% end %>
 <%= pb_rails("layout", props: { position: "left", size: "xl", collapse: "md", classname: "kpi" }) do %>
   <%= pb_rails("layout/sidebar") do %>
     <%= pb_rails("nav") do %>
@@ -50,7 +50,7 @@
     <% end %>
 
     <%= pb_rails("flex/flex_item", props: { flex: 1 }) do %>
-      <%= render "dashboard/sample_grid_chat" %>
+      <%= render "dashboard/sample_grid_chart" %>
     <% end %>
   <% end %>
 <% end %>

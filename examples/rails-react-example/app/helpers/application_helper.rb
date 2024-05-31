@@ -8,7 +8,7 @@ module ApplicationHelper
     when 'red' then 'red'
     when 'purple' then 'purple'
     when 'green' then 'green'
-    else '' # Default (no color)
+    else ''
     end
   end
 

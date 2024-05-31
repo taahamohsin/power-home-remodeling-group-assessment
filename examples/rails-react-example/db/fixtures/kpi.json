@@ -1,0 +1,33 @@
+[
+  {
+    "name": "Revenue",
+    "value": "$12,345.67",
+    "change": "26%",
+    "active": true
+  },
+  {
+    "name": "Orders",
+    "value": "8,910",
+    "change": "-2%"
+  },
+  {
+    "name": "Profit",
+    "value": "$5,432.10",
+    "change": ""
+  },
+  {
+    "name": "Average Check",
+    "value": "$14.99",
+    "change": "+5%"
+  },
+  {
+    "name": "Canceled",
+    "value": "18%",
+    "change": "-8%"
+  },
+  {
+    "name": "Repeat Sales",
+    "value": "22%",
+    "change": ""
+  }
+]

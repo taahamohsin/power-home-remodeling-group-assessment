@@ -1,0 +1,178 @@
+[
+  {
+    "name": "New",
+    "color": "blue",
+    "count": 25,
+    "tickets": [
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Missing part",
+        "user": "John Doe"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Shipping delayed",
+        "user": "Jane Smith"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Wrong size",
+        "user": "Alice Johnson"
+      },
+      {
+        "avatarUrl": null,
+        "issue": "Incorrect billing",
+        "user": "Bob Brown"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      }
+    ]
+  },
+  {
+    "name": "Processing",
+    "color": "yellow",
+    "count": 15,
+    "tickets": [
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Return request",
+        "user": "Mike Miller"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Exchange needed",
+        "user": "Sarah Wilson"
+      },
+      {
+        "avatarUrl": null,
+        "issue": "Payment issue",
+        "user": "David Lee"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Shipping address incorrect",
+        "user": "Olivia Martinez"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Cancel order",
+        "user": "Daniel Taylor"
+      }
+    ],
+    "show_more": false
+  },
+  {
+    "name": "Manager Feedback",
+    "count": 5,
+    "tickets": [
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Customer complaint",
+        "user": "Emily Anderson"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Refund request",
+        "user": "Chris Jackson"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product defect",
+        "user": "Sophia Clark"
+      },
+      {
+        "avatarUrl": null,
+        "issue": "Delivery issue",
+        "user": "Benjamin Harris"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Pricing error",
+        "user": "Mia Lewis"
+      }
+    ],
+    "show_more": false
+  },
+  {
+    "name": "Awaiting Feedback",
+    "count": 2,
+    "tickets": [
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Feedback on new product",
+        "user": "Ava White"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Survey response",
+        "user": "William Hall"
+      }
+    ],
+    "show_more": true
+  },
+  {
+    "name": "Approved",
+    "count": 8,
+    "tickets": [
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "New feature request",
+        "user": "James Young"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Bug report",
+        "user": "Chloe Green"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Improvement suggestion",
+        "user": "Jackson King"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Partnership inquiry",
+        "user": "Harper Turner"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      },
+      {
+        "avatarUrl": "avatars/Anita Cruz.png",
+        "issue": "Product damaged",
+        "user": "Eva Davis"
+      },
+      {
+        "avatarUrl": null,
+        "issue": "Job application",
+        "user": "Logan Hill"
+      }
+    ],
+    "show_more": false
+  }
+]

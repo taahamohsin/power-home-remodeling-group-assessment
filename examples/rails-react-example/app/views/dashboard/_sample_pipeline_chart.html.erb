@@ -4,14 +4,7 @@
         <%= pb_rails("icon", props: { variant: "link", icon: image_url("icons/ellipsis") })%>
       <% end %>
       <%= pb_rails("section_separator") %>
-        <% [
-  { label: "Add to Cart", percent: 100, number: 2577 },
-  { label: "Shopping Cart",  percent:  79, number: 2023 },
-  { label: "Payment Methods",  percent:  59, number: 1567 },
-  { label: "Delivery Methods",  percent:  56, number: 1252 },
-  { label: "Confirm", percent: 49, number: 1182 },
-  { label: "Delivery", percent: 46,  number:  1098 }
-].each do |info| %>
+        <% @pipeline_data.map(&:symbolize_keys).each do |info| %>
     <%= pb_rails("section_separator") %>
   <%= pb_rails("flex", props: {vertical: "center",spacing: "between", padding: "sm"}) do %>
     <%= pb_rails("flex/flex_item", props: { fixed_size: '20%' }) do %>

@@ -1,0 +1,30 @@
+[
+  {
+    "icon": "ticket",
+    "variant": "green",
+    "size": "lg",
+    "text": "Tickets (YTD)",
+    "value": 1426.0
+  },
+  {
+    "icon": "times-square",
+    "variant": "red",
+    "size": "lg",
+    "text": "Overdue",
+    "value": 25.0
+  },
+  {
+    "icon": "tasks",
+    "variant": "teal",
+    "size": "lg",
+    "text": "Closed Without Action (YTD)",
+    "value": 97.0
+  },
+  {
+    "icon": "exclamation-triangle",
+    "variant": "yellow",
+    "size": "lg",
+    "text": "Escalated (YTD)",
+    "value": 896.0
+  }
+]
