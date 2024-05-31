@@ -31,8 +31,8 @@ $extrabold:     700;
 
 #app-container {
   padding-top: $space_sm;
-  padding-left: 18%;
-  padding-right: 18%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .dashboard-title-card {
@@ -47,7 +47,8 @@ $extrabold:     700;
 }
 
 .percentage-change-indicator {
-float: right;
+  float: right;
+  padding-left: 10px;
 }
 
 .positive-change {
@@ -88,7 +89,11 @@ float: right;
 }
 
 .chevron-right-button {
-  color: grey !important;
+  color: $neutral !important;
+}
+
+.avatar-right-icon {
+    color: $neutral !important;
 }
 
 .pb_line_graph {
@@ -141,7 +146,9 @@ float: right;
 .responsive-kanban-layout {
   flex-wrap: wrap;
   height: 100%;
+  justify-content: center;
 }
+
 
 .gridone {
   display: grid;
@@ -152,9 +159,20 @@ float: right;
   width: 100%;
 }
 
+.kpi {
+  grid-template-columns: auto 1fr !important;
+}
+
+@media (max-width: 720px) {
+  .pb_grid {
+    /* Single column on smaller screens */
+    grid-template-columns: 1fr;
+  }
+}
+
 .chart-container > * {
   flex-basis: 50% !important;
-    min-width: 550px !important;
+  min-width: 520px !important;
 }
 
  .collection-flex-item {

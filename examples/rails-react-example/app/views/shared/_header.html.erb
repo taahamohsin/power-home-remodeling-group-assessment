@@ -1,37 +1,40 @@
   <%= pb_rails("background", props: { background_color: "white", padding_bottom: "none", padding_top: "xs" }) do %>
 
     <%= pb_rails("flex", props: { justify: "between", padding_left:"lg", padding_right:"lg", wrap: true, vertical: "center" }) do %>
-        <%= image_tag("logo.png", alt: "Company Logo") %>
+      <%= image_tag("logo.png", alt: "Company Logo") %>
 
-        <%= pb_rails("flex", props: { justify: "between", vertical: "center", row_gap: "sm", classname: "header-notification-container" }) do %>
-          <%= pb_rails("flex/flex_item") do %>
-            <%= pb_rails("icon", props: { icon: image_url("icons/bell.svg") }) %>
-              <%= pb_rails("badge", props: {
-                  text: "4",
-                  variant: "primary"
-                })
-              %>
-          <% end %>
-          <%= pb_rails("flex/flex_item") do %>
-            <%= pb_rails("icon", props: { icon: image_url("icons/inbox.svg" )})%>
-              <%= pb_rails("badge", props: {
-                text: "2",
+      <%= pb_rails("flex", props: { justify: "between", vertical: "center", row_gap: "sm", classname: "header-notification-container" }) do %>
+        <%= pb_rails("flex/flex_item") do %>
+          <%= pb_rails("icon", props: { icon: image_url("icons/bell.svg") }) %>
+            <%= pb_rails("badge", props: {
+                text: "4",
                 variant: "primary"
               })
             %>
-          <% end %>
         <% end %>
+        <%= pb_rails("flex/flex_item") do %>
+          <%= pb_rails("icon", props: { icon: image_url("icons/inbox.svg" )})%>
+            <%= pb_rails("badge", props: {
+              text: "2",
+              variant: "primary"
+            })
+          %>
+        <% end %>
+      <% end %>
 
 
+    <%= pb_rails("flex", props: { justify_content: "between", vertical: "center" }) do %>
+      <%= pb_rails("title", props: { text: "Indira Shree", tag: "h4", size: 4, padding_right: 'xs', font_weight: "bold" }) %>
+      <%= pb_rails("avatar", props: {
+          name: "Indhira Shree",
+          size: "sm",
+          image_alt: "Indhira Shree",
+          image_url: image_path("avatars/Anita Cruz.png"),
+      }) %>
+      <%= pb_rails("button", props: { variant: "link",  icon: image_url("icons/angle-down"), icon_right: true, padding_x: 'xxs', size: "sm", classname: 'avatar-right-icon' }) %> <%# Move button next to the avatar %>
+    <% end %>
 
-      <div class="pb_col-auto">
-        <%= pb_rails("avatar", props: {
-            name: "Indhira Shree",
-            size: "sm",
-            image_alt: "Indhira Shree",
-            image_url: image_path("avatars/Anita Cruz.png")
-          }) %>
-      </div>
+
     <% end %>
   <% end %>
       <%= pb_rails("section_separator") %>

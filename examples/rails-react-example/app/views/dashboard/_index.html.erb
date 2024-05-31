@@ -1,54 +1,50 @@
-  <%= pb_rails("body", props: { text: "DASHBOARD", color: "lighter" }) %>
-  <%= pb_rails("title", props: { text: "Commerce Dashboard", tag: "h2", size: 2, bold: false }) %>
+<%= pb_rails("body", props: { text: "DASHBOARD", color: "lighter" }) %>
+<%= pb_rails("title", props: { text: "Commerce Dashboard", tag: "h2", size: 2, bold: false }) %>
 <br/>
-
-<%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
-    <%= pb_rails("title", props: { text: "Pipeline Chart", tag: "h4", size: 4, padding: "sm" }) %>
-
-    <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: image_url("icons/ellipsis.svg") }) %>
+    <%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
+      <%= pb_rails("title", props: { text: "Key Performance Indicators", tag: "h4", size: 4, padding: "xs" }) %>
+      <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: image_url("icons/ellipsis.svg") }) %>
     <% end %>
-
-<%= pb_rails("layout", props: { position: "left", size: "xl", collapse: "md" }) do %>
-  <%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
-
-  <% end %>
-
-<br/>
+<%= pb_rails("layout", props: { position: "left", size: "xl", collapse: "md", classname: "kpi" }) do %>
   <%= pb_rails("layout/sidebar") do %>
     <%= pb_rails("nav") do %>
       <% [
-          { name: "Revenue", value: "$12,345.67", change: "+26%" },
+          { name: "Revenue", value: "$12,345.67", change: "26%", active: true },
           { name: "Orders", value: "8,910", change: "-2%" },
           { name: "Profit", value: "$5,432.10", change: "" },
           { name: "Average Check", value: "$14.99", change: "+5%" },
           { name: "Canceled", value: "18%", change: "-8%" },
           { name: "Repeat Sales", value: "22%", change: "" },
         ].each do |kpi| %>
-        <%= pb_rails("nav/item", props: { text: kpi[:name], link: '#' }) do |item| %>
-              <% if kpi[:change].present? %>
-                <span class="percentage-change-indicator <%= kpi[:change].to_f > 0 ? 'positive-change' : 'negative-change' %>">
-                    <%= pb_rails("icon", props: {  icon: kpi[:change].to_f > 0 ? image_url('icons/arrow-up') : image_url('icons/arrow-down') }) %>
-                    <%= kpi[:change] %>
-                </span>
-              <% end %>
-        <% end %>
+          <%= pb_rails("section_separator") %>
+          <%= pb_rails("nav/item", props: { text: kpi[:name], link: "#", active: kpi[:active], font_weight: 'bold', padding_y: "md" }) do |item| %>
+                <% if kpi[:change].present? %>
+                  <span class="percentage-change-indicator <%= kpi[:change].to_f > 0 ? 'positive-change' : 'negative-change' %>">
+                      <%= pb_rails("icon", props: { icon: image_url("icons/#{kpi[:change].to_f > 0 ? 'arrow-up' : 'arrow-down'}"), color: kpi[:change].to_f > 0 ? 'success' : 'error' }) %>
+                      <%= kpi[:change] %>
+                  </span>
+                <% end %>
+          <% end %>
+
       <% end %>
     <% end %>
   <% end %>
+
   <%= pb_rails("layout/body") do %>
     <%= render "dashboard/sample_line_chart" %>
   <% end %>
 <% end %>
 <br/>
-<%= pb_rails("caption", props: { text: "This Week's Ticket Escalations", text_align: 'center', color: 'lighter' }) %>
+
+<%= pb_rails("caption", props: { text: "This Week's Ticket Escalations", tag: "h3", text_align: 'center', color: 'lighter' }) %>
 <br/>
 <%= pb_rails("layout", props: { layout: "kanban", classname: 'responsive-kanban-layout' }) do %>
   <%= render "dashboard/ticket_escalations" %>
 <% end %>
 <br/>
 
-<%= pb_rails("layout", props: { layout: "collection" })  do %>
-  <%= pb_rails("flex", props: { wrap: true, justify: "between", classname:'chart-container' }) do %>
+<%= pb_rails("layout", props: { layout: "collection"})  do %>
+  <%= pb_rails("flex", props: { wrap: true, justify: "between", classname:'chart-container'  }) do %>
     <%= pb_rails("flex/flex_item", props: { flex: 1 }) do %>
       <%= render "dashboard/sample_pipeline_chart" %>
     <% end %>
@@ -58,7 +54,3 @@
     <% end %>
   <% end %>
 <% end %>
-
-
-
-
