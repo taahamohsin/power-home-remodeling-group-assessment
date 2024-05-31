@@ -1,17 +1,19 @@
-<div class="pb_grid">
   <%= pb_rails("body", props: { text: "DASHBOARD", color: "lighter" }) %>
   <%= pb_rails("title", props: { text: "Commerce Dashboard", tag: "h2", size: 2, bold: false }) %>
-</div>
 <br/>
 
+<%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
+    <%= pb_rails("title", props: { text: "Pipeline Chart", tag: "h4", size: 4, padding: "sm" }) %>
+
+    <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: image_url("icons/ellipsis.svg") }) %>
+    <% end %>
+
 <%= pb_rails("layout", props: { position: "left", size: "xl", collapse: "md" }) do %>
+  <%= pb_rails("card", props: { classname: 'dashboard-title-card', padding: 'xs' }) do %>
 
-  <%= pb_rails("card", props: { classname: 'dashboard-title-card' }) do %>
-    <%= pb_rails("body", props: { text: "Key Performance Indicators", color: "default" }) %>
-      <%= pb_rails("circle_icon_button", props: { variant: "secondary", icon: "fa-chevron-right"}) %>
   <% end %>
-  <hr style="height:1px;border:none;color:#e4e8f0;background-color:#e4e8f0;margin: 15px;" />
 
+<br/>
   <%= pb_rails("layout/sidebar") do %>
     <%= pb_rails("nav") do %>
       <% [
@@ -23,14 +25,12 @@
           { name: "Repeat Sales", value: "22%", change: "" },
         ].each do |kpi| %>
         <%= pb_rails("nav/item", props: { text: kpi[:name], link: '#' }) do |item| %>
-          <span class="kpi-wrapper pb_flex pb_items_center pb_justify_end">
-            <% if kpi[:change].present? %>
-              <span class="pb_icon_wrapper pb_ml_xs" style="color: <%= kpi[:change].to_f > 0 ? '#069668' : '#E01E5A' %>;">
-                <i class="fas <%= kpi[:change].to_f > 0 ? 'fa-arrow-up' : 'fa-arrow-down' %>"></i>
-              </span>
-              <span class="pb_stat_change"><%= kpi[:change] %></span>
-            <% end %>
-          </span>
+              <% if kpi[:change].present? %>
+                <span class="percentage-change-indicator <%= kpi[:change].to_f > 0 ? 'positive-change' : 'negative-change' %>">
+                    <%= pb_rails("icon", props: {  icon: kpi[:change].to_f > 0 ? image_url('icons/arrow-up') : image_url('icons/arrow-down') }) %>
+                    <%= kpi[:change] %>
+                </span>
+              <% end %>
         <% end %>
       <% end %>
     <% end %>
@@ -40,13 +40,15 @@
   <% end %>
 <% end %>
 <br/>
+<%= pb_rails("caption", props: { text: "This Week's Ticket Escalations", text_align: 'center', color: 'lighter' }) %>
+<br/>
 <%= pb_rails("layout", props: { layout: "kanban", classname: 'responsive-kanban-layout' }) do %>
   <%= render "dashboard/ticket_escalations" %>
 <% end %>
 <br/>
 
 <%= pb_rails("layout", props: { layout: "collection" })  do %>
-  <%= pb_rails("flex", props: { wrap: true, justify: "between",  align_items: "stretch" }) do %>
+  <%= pb_rails("flex", props: { wrap: true, justify: "between", classname:'chart-container' }) do %>
     <%= pb_rails("flex/flex_item", props: { flex: 1 }) do %>
       <%= render "dashboard/sample_pipeline_chart" %>
     <% end %>

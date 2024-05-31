@@ -19,11 +19,11 @@ function showTab(tabId) {
     "settings-container"
   ];
   containers.forEach(id => {
-    document.getElementById(id).style.display = "none";
+    document.getElementById(id)?.style.display = "none";
   });
 
   // Show the selected tab content
-  document.getElementById(tabId).style.display = "block";
+  document.getElementById(tabId)?.style.display = "block";
 
   // Update the 'active' class in the navigation links
   const navLinks = document.querySelectorAll(".pb_nav_link");

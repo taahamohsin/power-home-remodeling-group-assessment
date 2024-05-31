@@ -1,3 +1,4 @@
+
 <%
   [
     { name: "New", color: "blue", count: 25, tickets: [
@@ -5,8 +6,11 @@
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Shipping delayed", user: "Jane Smith" },
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Wrong size", user: "Alice Johnson" },
         { avatar_url: nil, issue: "Incorrect billing", user: "Bob Brown" },   # Example with no avatar
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" },
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" }
-      ], show_more: true },
+      ]},
     { name: "Processing", color: "yellow", count: 15, tickets: [
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Return request", user: "Mike Miller" },
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Exchange needed", user: "Sarah Wilson" },
@@ -30,6 +34,9 @@
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Bug report", user: "Chloe Green" },
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Improvement suggestion", user: "Jackson King" },
         { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Partnership inquiry", user: "Harper Turner" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" },
+        { avatar_url: image_path("avatars/Anita Cruz.png"), issue: "Product damaged", user: "Eva Davis" },
         { avatar_url: nil, issue: "Job application", user: "Logan Hill" }
       ], show_more: false }
   ].each do |stage| %>
@@ -48,25 +55,30 @@
           <% end %>
         <% end %>
       <% end %>
-      <% stage[:tickets].each do |ticket| %>
-        <%= pb_rails("card", props: { padding: "sm", margin_bottom: "none" }) do %>
-          <%= pb_rails("flex", props: { justify: "between" }) do %>
+      <% stage[:tickets][0, 5].each do |ticket| %>
+        <%= pb_rails("card", props: { padding: "xs", margin_top: "none", margin_bottom: "none" }) do %>
+          <%= pb_rails("flex", props: { justify: "between", align_items: "center" }) do %>
             <%= pb_rails("flex/flex_item") do %>
               <%= pb_rails("avatar", props: {
                   name: ticket[:user],
                   size: "xs",
-                  image_url: ticket[:avatar_url],
-                  status: "away"
-              }) %>
+                  image_url: ticket[:avatar_url]
+                }) %>
             <% end %>
+          <%= pb_rails("flex/flex_item", props: { flex: 1, padding_left: "xs"}) do %>
+            <%= pb_rails("body", props: { text: ticket[:issue], truncate: "1", size: 4, weight: 'light' }) %>
+          <% end %>
             <%= pb_rails("flex/flex_item") do %>
-              <%= pb_rails("body", props: { text: ticket[:issue], truncate: 1 }) %>
-            <% end %>
-            <%= pb_rails("flex/flex_item") do %>
-              <%= pb_rails("button", props: { variant: "link",  icon: "fa-chevron-right", icon_right: true }) %>
+              <%= pb_rails("button", props: { variant: "link",  icon: image_url("icons/chevron-right"), icon_right: true, padding_left: "none", padding_right: "xs", classname: 'chevron-right-button', size: "sm" }) %>
             <% end %>
         <% end %>
       <% end %>
+
+  <% end %>
+       <% if stage[:tickets].length > 6 %>
+        <%= pb_rails("card", props: { padding: "xs", margin_top: "none", justify_content: "center" }) do %>
+          <%= pb_rails("button", props: { text: "Show More", variant: "link", size: "sm", full_width: true }) %>
+        <% end %>
     <% end %>
   <% end %>
 <% end %>

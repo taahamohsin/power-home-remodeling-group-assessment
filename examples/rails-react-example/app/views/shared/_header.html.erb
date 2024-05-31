@@ -1,19 +1,29 @@
-<header class="pb_bg_white pb_p_md">
-  <div class="pb_grid">
-    <%= pb_rails("flex", props: { justify: "between" }) do %>
-      <div class="pb_col-auto">
+  <%= pb_rails("background", props: { background_color: "white", padding_bottom: "none", padding_top: "xs" }) do %>
+
+    <%= pb_rails("flex", props: { justify: "between", padding_left:"lg", padding_right:"lg", wrap: true, vertical: "center" }) do %>
         <%= image_tag("logo.png", alt: "Company Logo") %>
-      </div>
 
-      <span>
-        <span class="pb_icon_wrapper">
-          <i class="fas fa-bell"></i>
-        </span>
+        <%= pb_rails("flex", props: { justify: "between", vertical: "center", row_gap: "sm", classname: "header-notification-container" }) do %>
+          <%= pb_rails("flex/flex_item") do %>
+            <%= pb_rails("icon", props: { icon: image_url("icons/bell.svg") }) %>
+              <%= pb_rails("badge", props: {
+                  text: "4",
+                  variant: "primary"
+                })
+              %>
+          <% end %>
+          <%= pb_rails("flex/flex_item") do %>
+            <%= pb_rails("icon", props: { icon: image_url("icons/inbox.svg" )})%>
+              <%= pb_rails("badge", props: {
+                text: "2",
+                variant: "primary"
+              })
+            %>
+          <% end %>
+        <% end %>
 
-        <span class="pb_icon_wrapper">
-          <i class="fas fa-flag"></i>
-        </span>
-      </span>
+
+
       <div class="pb_col-auto">
         <%= pb_rails("avatar", props: {
             name: "Indhira Shree",
@@ -23,6 +33,8 @@
           }) %>
       </div>
     <% end %>
+  <% end %>
+      <%= pb_rails("section_separator") %>
 
     <div class="pb_col-auto pb_flex pb_items_center">
       <%= pb_rails("nav", props: {  margin_top: "sm", orientation: "horizontal" }) do %>
@@ -33,5 +45,3 @@
         <%= pb_rails("nav/item", props: { text: "Sign Out", link: "#" }) %>
       <% end %>
     </div>
-  </div>
-</header>
